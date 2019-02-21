@@ -492,6 +492,7 @@ dydt <- function(t,y, parms, ... ){
 
 
 
+F <- TRUE
 
 ## unit tests
 if (F)
@@ -524,9 +525,9 @@ if (F)
 	tr <- sapply( times_day, function(t) diag.t( t, theta ) )
 	di <- sapply( times_day, function(t) tr.t( t ) )
 	inc <- sapply( times_day, function(t) inc.t( t , theta ) )
-	X11(); plot( times_year, inc )
-	X11(); plot( times_day, tr )
-	X11(); plot( times_day, di )
+	# X11(); plot( times_year, inc )
+	# X11(); plot( times_day, tr )
+	# X11(); plot( times_day, di )
 }
 
 if (F)
@@ -602,7 +603,7 @@ snazzy.plot <- function( desolve, agg )
 	oa <- ( sapply( names( agg ), function( n ) {
 		rowSums( desolve[, 1 + agg[[n]] ] )  ## NOTE desolve mat has time as first col
 	}) )
-	X11() 
+	# X11() 
 	matplot( times_year, oa, type = 'l' )
 	legend( x = 'topleft', legend = names(agg)
 	  , col = 1:length(agg) #SPCOLS[1:length(agg)] 
@@ -624,7 +625,7 @@ if (F)
 	})
 	
 	if (F){
-		X11(); snazzy.plot(  o, CARE_COORDS ) 
+		# X11(); snazzy.plot(  o, CARE_COORDS ) 
 		snazzy.plot(  o, AGE_COORDS ) 
 		snazzy.plot(  o, RISK_COORDS ) 
 		snazzy.plot(  o, NH_COORDS ) 
